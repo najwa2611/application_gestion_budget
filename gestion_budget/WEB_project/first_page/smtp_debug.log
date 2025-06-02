@@ -1,0 +1,51 @@
+2025-05-01 17:03:50 [3] Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-05-01 17:03:50 [3] Connection: opened
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP a640c23a62f3a-ad0c70d3933sm51570766b.3 - gsmtp
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: EHLO localhost
+
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [105.74.65.202]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: STARTTLS
+
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: EHLO localhost
+
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [105.74.65.202]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: [credentials hidden]
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: [credentials hidden]
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a640c23a62f3a-ad0c70d3933sm51570766b.3 - gsmtp
+
+2025-05-01 17:03:51 [1] SMTP ERROR: Password command failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a640c23a62f3a-ad0c70d3933sm51570766b.3 - gsmtp
+
+2025-05-01 17:03:51 [3] SMTP Error: Could not authenticate.
+2025-05-01 17:03:51 [1] CLIENT -> SERVER: QUIT
+
+2025-05-01 17:03:51 [2] SERVER -> CLIENT: 221 2.0.0 closing connection a640c23a62f3a-ad0c70d3933sm51570766b.3 - gsmtp
+
+2025-05-01 17:03:51 [3] Connection: closed
+2025-05-01 17:03:51 [3] SMTP Error: Could not authenticate.

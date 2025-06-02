@@ -1,0 +1,683 @@
+/* pageservice.css - Premium Black & Gold Dashboard (Upgraded) */
+:root {
+  --primary: #f8ca35;
+  --primary-dark: #e6b92d;
+  --secondary: #d4af37;
+  --dark: #1a1a1a;
+  --darker: #121212;
+  --light: #f8f9fa;
+  --accent: #f8ca35;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --border-color: rgba(248, 202, 53, 0.6);
+  --glow-effect: 0 0 10px rgba(248, 202, 53, 0.6);
+  --glow-effect-strong: 0 0 15px rgba(248, 202, 53, 0.8);
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.5s ease;
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 30px;
+  --text-light: #F5F5F5;
+  --text-muted: #AAAAAA;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-width: 320px;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--darker), var(--dark));
+  color: #e0e0e0;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 10%, rgba(40, 40, 40, 0.8), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar - Enhanced with new design */
+.sidebar {
+  width: 280px;
+  background: rgba(26, 26, 26, 0.9);
+  padding: 2rem 1.5rem;
+  border-right: 2px solid var(--border-color);
+  box-shadow: var(--box-shadow), var(--glow-effect);
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+  transition: transform var(--transition-medium);
+  transform: translateX(-100%);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+
+.sidebar.visible {
+  transform: translateX(0);
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient);
+  animation: shimmer 3s infinite linear;
+}
+
+/* Menu Button (Three Bars) - Enhanced */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 101;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  transition: var(--transition-fast);
+}
+
+.menu-btn .bar {
+  height: 3px;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: var(--transition-fast);
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+}
+
+.menu-btn:hover .bar {
+  background: var(--secondary);
+  box-shadow: var(--glow-effect);
+}
+
+.menu-btn.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Close Button (X) - Enhanced */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 110;
+  transition: var(--transition-fast);
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
+  top: 50%;
+  left: 0;
+  transition: var(--transition-fast);
+}
+
+.close-btn::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.close-btn::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+  background: var(--secondary);
+  box-shadow: var(--glow-effect-strong);
+}
+
+/* Logo and Navigation - Enhanced */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: var(--glow-effect);
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
+}
+
+/* Updated Navigation Styling to Remove Dots */
+nav ul {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+nav ul li {
+  padding: 1rem 1.5rem;
+  margin: 0.75rem 0;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove the before pseudo-element that might be creating dots */
+nav ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(248, 202, 53, 0.1), transparent);
+  transition: var(--transition-medium);
+}
+
+/* Remove the after pseudo-element that creates dots */
+nav ul li::after {
+  content: none !important;
+}
+
+nav ul li:hover::before {
+  left: 100%;
+}
+
+nav ul li i {
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+nav ul li:hover {
+  background: rgba(30, 30, 30, 0.7);
+  color: var(--primary);
+  transform: translateX(5px);
+  box-shadow: var(--glow-effect);
+}
+
+nav ul li:hover i {
+  transform: scale(1.2);
+}
+
+/* Last item (Log Out) special styling */
+nav ul li:last-child {
+  margin-top: 2rem;
+  border-top: 1px solid rgba(248, 202, 53, 0.2);
+  padding-top: 1.5rem;
+}
+
+nav ul li:last-child i {
+  color: #f8ca35;
+}
+
+nav ul li:last-child:hover {
+  color: #f8ca35;
+}
+/* Main Content */
+.main-area {
+  flex: 1;
+  min-height: 100vh;
+  width: 100%;
+  transition: margin-left var(--transition-medium);
+}
+
+.main-area.shifted {
+  margin-left: 280px;
+}
+
+/* Topbar - Enhanced */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background: rgba(30, 30, 30, 0.9);
+  border-bottom: 2px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--box-shadow), var(--glow-effect);
+}
+
+.topbar h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 50px;
+}
+
+.wave {
+  animation: wave 2s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  transition: var(--transition-fast);
+  box-shadow: var(--glow-effect);
+}
+
+.profile img:hover {
+  transform: scale(1.1);
+  box-shadow: var(--glow-effect-strong);
+}
+
+.profile span {
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* Services Grid - Enhanced */
+.main-content {
+  padding: 2.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  background: rgba(26, 26, 26, 0.7);
+  padding: 3rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--box-shadow), var(--glow-effect);
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.services-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(248, 202, 53, 0.05), transparent);
+  pointer-events: none;
+}
+
+.service-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-md);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-out backwards;
+  text-align: center;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(248, 202, 53, 0.05), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: -1;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background: rgba(30, 30, 30, 0.9);
+  border: 2px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), var(--glow-effect);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-light);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  height: 2px;
+  bottom: 0;
+  left: 30%;
+  background: var(--gradient);
+  transition: width var(--transition-medium), left var(--transition-medium);
+}
+
+.service-card:hover .title::after {
+  width: 80%;
+  left: 10%;
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+  margin-bottom: 1.5rem;
+}
+
+.service-card:hover .description {
+  color: #ddd;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-shadow: var(--glow-effect);
+  transition: transform var(--transition-medium);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Chart Icons */
+.chart-icon {
+  font-size: 35px;
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+.chart-icon2 {
+  font-size: 25px;
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+  .main-area.shifted {
+      margin-left: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+      padding: 1.25rem;
+  }
+  .main-content {
+      padding: 1.5rem;
+  }
+  .services-grid {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar h2 {
+      font-size: 1.25rem;
+  }
+  .service-card {
+      padding: 2rem 1.5rem;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(9deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--primary);
+  color: var(--darker);
+}
+
+/* Focus states for accessibility */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+/* Logo Image Styling */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.logo-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
+}
+
+.logo-image {
+  max-width: 180px;
+  height: auto;
+  filter: drop-shadow(var(--glow-effect));
+  transition: var(--transition-fast);
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(var(--glow-effect-strong));
+}
+/* Service Button Styling - Enhanced */
+.service-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  margin-top: 1.5rem;
+  background: var(--gradient);
+  color: var(--darker);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.service-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s;
+}
+
+.service-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), var(--glow-effect);
+  color: var(--darker);
+}
+
+.service-button:hover::before {
+  left: 100%;
+}
+
+.service-button:active {
+  transform: translateY(-1px);
+}
+
+/* Add to the existing service-features styling */
+.service-features {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.service-features li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-features li::before {
+  content: '✓';
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.fas fa-sign-out-alt {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  padding: 0 1.5rem;
+}
